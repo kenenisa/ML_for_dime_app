@@ -3,7 +3,7 @@ import socketserver
 from Predict_next_week_spending import run_script
 from predict_spender_script import run_spender_script
 import os
-PORT = os.getenv('PORT') or 8080
+PORT = os.getenv('PORT') or "8080"
 
 class MyRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
@@ -18,6 +18,6 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
 
 Handler = MyRequestHandler
 
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
+with socketserver.TCPServer(("", int(PORT)), Handler) as httpd:
     print("Server started at localhost:{}".format(PORT))
     httpd.serve_forever()
