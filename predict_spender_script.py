@@ -16,7 +16,7 @@ from pandas import json_normalize
 
 
 
-def main():
+def run():
 
     json_file = Helpers.get_request("reserve")
     if not json_file:
@@ -68,5 +68,5 @@ def main():
     Helpers.post_reserver(high_spender_count, low_spender_count)
     # print(high_spender_count, low_spender_count)
 
-if __name__ == "__main__":
-    main()
+def run_script():
+    run()
