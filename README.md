@@ -2,6 +2,6 @@
 
 @packages
 
-pip install xgboost numpy pandas seaborn matplotlib plotly pmdarima
+pip install xgboost numpy pandas seaborn matplotlib plotly pmdarima requests
 
 pip install -U scikit-learn 
