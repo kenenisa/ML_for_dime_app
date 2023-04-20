@@ -13,7 +13,7 @@ from sklearn.metrics import mean_squared_error
 from math import sqrt
 from datetime import date, timedelta, datetime
 
-def main(data):
+def run(data):
 
     # df=pd.read_csv('MaunaLoaDailyTemps.csv',index_col='DATE',parse_dates=True)
     df = data
@@ -85,7 +85,7 @@ def main(data):
 
     return predictions
 
-if __name__ == "__main__":
+def run_script():
     preditions = []
     json_file = Helpers.get_request("prediction")
     deposit_data, expense_data = defaultdict(list), defaultdict(list)
@@ -101,8 +101,8 @@ if __name__ == "__main__":
 
     deposit_prediction, expense_prediction = defaultdict(list), defaultdict(list)
     for key in deposit_data.keys():
-        deposit_prediction[key] = main(pd.DataFrame(deposit_data[key], columns = ['DATE', 'Total', 'average', 'max']))
-        expense_prediction[key] = main(pd.DataFrame(expense_data[key], columns = ['DATE', 'Total', 'average', 'max']))
+        deposit_prediction[key] = run(pd.DataFrame(deposit_data[key], columns = ['DATE', 'Total', 'average', 'max']))
+        expense_prediction[key] = run(pd.DataFrame(expense_data[key], columns = ['DATE', 'Total', 'average', 'max']))
     
     for deposit_key in deposit_data:
         merged_predictions = []
